@@ -18,7 +18,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class TestRunner {
-    static WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeClass
     public static void startBrowser() {
@@ -27,7 +27,7 @@ public class TestRunner {
 
     @AfterClass
     public static void stop() {
-        driver.quit();
+        //driver.quit();
         driver = null;
     }
 
