@@ -64,12 +64,12 @@ public class Info_News_ContactUs_StepDef extends TestRunner {
     }
 
     //================News Scenario=============================
-    @Given("^User click on News$")
+    @When("^User click on News$")
     public void userClickOnNews() throws InterruptedException {
         newsPage.clickNewsPage();
     }
 
-    @When("^Navigate to the News Page$")
+    @Then("^Navigate to the News Page$")
     public void navigateToNewsPage() {
         newsPage.isNewsPageDisplay();
     }

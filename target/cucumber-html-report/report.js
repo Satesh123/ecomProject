@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("regression/info_News_ContactUs.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("resources/regression/info_News_ContactUs.feature");
 formatter.feature({
   "line": 1,
   "name": "InfoNewsContact",
@@ -7,7 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5894309200,
+  "duration": 5481034300,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 2888186600,
   "status": "passed"
 });
 formatter.scenario({
@@ -52,51 +56,60 @@ formatter.match({
   "location": "Info_News_ContactUs_StepDef.infoPagesLinkDisplayInMainMenu()"
 });
 formatter.result({
-  "duration": 219431000,
+  "duration": 380789700,
   "status": "passed"
 });
 formatter.match({
   "location": "Info_News_ContactUs_StepDef.userDoMouseOverOnInfoPagesLinkInMainMenuOnHomepage()"
 });
 formatter.result({
-  "duration": 4991400,
+  "duration": 5877800,
   "status": "passed"
 });
 formatter.match({
   "location": "Info_News_ContactUs_StepDef.selectLinkAboutUs()"
 });
 formatter.result({
-  "duration": 4668340000,
+  "duration": 4621023200,
   "status": "passed"
 });
 formatter.match({
   "location": "Info_News_ContactUs_StepDef.navigateToTheAboutUsPage()"
 });
 formatter.result({
-  "duration": 45837300,
+  "duration": 45419700,
   "status": "passed"
 });
 formatter.match({
   "location": "Info_News_ContactUs_StepDef.selectPrivacyPolicyLink()"
 });
 formatter.result({
-  "duration": 1578285100,
+  "duration": 1498609000,
   "status": "passed"
 });
 formatter.match({
   "location": "Info_News_ContactUs_StepDef.navigateToThePrivacyPage()"
 });
 formatter.result({
-  "duration": 39844700,
+  "duration": 40088100,
   "status": "passed"
 });
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 438821000,
+  "duration": 412242000,
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded1.png");
+formatter.after({
+  "duration": 346949700,
   "status": "passed"
 });
 formatter.before({
-  "duration": 3079348700,
+  "duration": 2660342000,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 2891433000,
   "status": "passed"
 });
 formatter.scenario({
@@ -118,22 +131,27 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "Info_News_ContactUs_StepDef.userClickOnNews()"
+  "location": "News_Stepdefs.userClickOnNews()"
 });
 formatter.result({
-  "duration": 4186726600,
+  "duration": 4131433500,
   "status": "passed"
 });
 formatter.match({
-  "location": "Info_News_ContactUs_StepDef.navigateToNewsPage()"
+  "location": "News_Stepdefs.navigateToTheNewsPage()"
 });
 formatter.result({
-  "duration": 57568000,
+  "duration": 37290800,
   "status": "passed"
 });
-formatter.embedding("image/png", "embedded1.png");
+formatter.embedding("image/png", "embedded2.png");
 formatter.after({
-  "duration": 422144700,
+  "duration": 447073700,
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded3.png");
+formatter.after({
+  "duration": 410573900,
   "status": "passed"
 });
 });
