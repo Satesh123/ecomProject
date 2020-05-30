@@ -58,7 +58,8 @@ public class Login_Register_Stepdefs extends TestRunner {
         loginRegistration.homeAlert();
         Assert.assertTrue(driver.findElement(By.xpath("//div[@class='nav-avatar nav-link']//span[contains(text(),'Welcome ')]")).isDisplayed());
         System.out.println("Login success");
-
+        loginRegistration.homeAlert();
+        loginRegistration.logout();
     }
 
 
@@ -92,6 +93,25 @@ public class Login_Register_Stepdefs extends TestRunner {
     public void theEmailShouldBeNotSentAndErrorMessageShown(String M) throws Throwable {
         Assert.assertEquals(M,driver.findElement(By.xpath("//span[contains(text(),'Error:')]")).getText());
     }
+
+    // ==================Registration Page =========================
+    @When("^he enters the \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void heEntersThe(String fname, String lname, String email, String pass, String cpass, String gender) throws Throwable {
+    loginRegistration.createUserAccount(fname,lname,email,pass,cpass,gender);
+    }
+
+    @And("^accepts the terms and policy$")
+    public void acceptsTheTermsAndPolicy() {
+        loginRegistration.checkAcceptTerms();
+        loginRegistration.submitAccount();
+    }
+
+    @Then("^the user account should be created successfully$")
+    public void theUserAccountShouldBeCreatedSuccessfully() {
+        loginRegistration.homeAlert();
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@class='nav-avatar nav-link']//span[contains(text(),'Welcome ')]")).isDisplayed());
+        System.out.println("create account success");
+    }
 }
 
-// ==================End of login Page =========================
+

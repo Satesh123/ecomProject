@@ -27,7 +27,7 @@ public class TestRunner {
 
     @AfterClass
     public static void stop() {
-        driver.quit();
+        //driver.quit();
         driver = null;
     }
 

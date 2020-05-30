@@ -1,5 +1,5 @@
 @successlogin
-Feature: Login
+Feature: Login and Registration
 
   Scenario Outline: Success login
 
@@ -11,7 +11,7 @@ Feature: Login
 
       |email                         |password|
       |anikethbattalwar02@gmail.com  |abc1234 |
-      |anikethb02@gmail.com          |test123 |
+#      |anikethb02@gmail.com          |test123 |
 
  @failurelogin
   Scenario Outline: Failure login with Invalid email and password
@@ -54,4 +54,23 @@ Feature: Login
        Examples:
          |Email        |Emessage|
          |abc@gmail.com|Error:  |
+
+#    ==================Registration Page =========================
+
+        @registrationSuccess
+        Scenario Outline: user registration success
+
+          Given user is in login page
+          When he enters the "<fname>" "<lname>" "<emailadd>" "<password>" "<confirmpassword>" "<gender>"
+          And accepts the terms and policy
+          Then the user account should be created successfully
+
+          Examples:
+            |fname  |lname  |emailadd        |password  |confirmpassword |gender  |
+#            |Alex   |Jackson|alex@gmail.com  |alex123   |alex123         |Male    |
+            |Eric   |Jackson|eric@gmail.com  |eric123   |eric123         |Male    |
+
+
+
+
 
