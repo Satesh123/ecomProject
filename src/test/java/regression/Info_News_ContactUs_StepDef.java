@@ -7,11 +7,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import regression.customerPortalPOM.InfoPage;
 import regression.customerPortalPOM.NewsPage;
+import regression.customerPortalPOM.ShoppingPage;
 
 public class Info_News_ContactUs_StepDef extends TestRunner {
 
     public InfoPage infoPage;
     public NewsPage newsPage;
+
 
     @Before
     public void start() {
@@ -73,5 +75,7 @@ public class Info_News_ContactUs_StepDef extends TestRunner {
     public void navigateToNewsPage() {
         newsPage.isNewsPageDisplay();
     }
+
+    //======================SHOPPING============================
 
 }
