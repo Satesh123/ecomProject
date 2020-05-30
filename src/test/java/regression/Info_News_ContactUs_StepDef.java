@@ -1,10 +1,12 @@
 package regression;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.*;
 import cucumber.api.java.en.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import regression.customerPortalPOM.ContactUsPage;
 import regression.customerPortalPOM.InfoPage;
 import regression.customerPortalPOM.NewsPage;
 
@@ -12,11 +14,13 @@ public class Info_News_ContactUs_StepDef extends TestRunner {
 
     public InfoPage infoPage;
     public NewsPage newsPage;
+    public ContactUsPage contactUsPage;
 
     @Before
     public void start() {
         infoPage = new InfoPage();
         newsPage = new NewsPage();
+        contactUsPage = new ContactUsPage();
 
         driver.get("http://142.93.198.238/ecom/public/");
     }
@@ -64,14 +68,44 @@ public class Info_News_ContactUs_StepDef extends TestRunner {
     }
 
     //================News Scenario=============================
-    @Given("^User click on News$")
+    @When("^User click on News in main menu tab$")
     public void userClickOnNews() throws InterruptedException {
         newsPage.clickNewsPage();
     }
 
-    @When("^Navigate to the News Page$")
+    @Then("^Navigate to the News Page$")
     public void navigateToNewsPage() {
         newsPage.isNewsPageDisplay();
     }
+
+    //===============Contact Us=================================
+    @Given("^User is on Home Page$")
+    public void userIsOnHomePage() throws InterruptedException {
+        contactUsPage.isContactUsTabDisplay();
+    }
+
+    @When("^Click on Contact Us link$")
+    public void clickOnContactUsLink() {
+        contactUsPage.clickOnContactUs();
+
+    }
+
+    @Then("^Navigate to Contact Us Page$")
+    public void navigateToContactUsPage() {
+        contactUsPage.isContactPageDisplay();
+
+    }
+
+    @When("^User fill required field FullName as \"([^\"]*)\" Email as \"([^\"]*)\" Message as \"([^\"]*)\" and click submit$")
+    public void userFillRequiredFieldFullNameAsEmailAsMessageAs(String name, String email, String message) {
+        contactUsPage.fillRequiredField(name, email, message);
+
+    }
+
+    @Then("^User message should be deliver successfully$")
+    public void userMessageShouldBeDeliverSuccessfully() {
+        contactUsPage.isContactPageDisplay();
+    }
+
 
 }
