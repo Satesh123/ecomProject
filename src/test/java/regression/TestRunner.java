@@ -10,15 +10,12 @@ import org.openqa.selenium.WebDriver;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber-json-report.json"}
-
-        ,tags = {"@regression"}
-    //    ,features = {"src/test"}
+        //       ,
+        //       tags = {"@Siri"}
 
 )
-
-
 public class TestRunner {
-    public static WebDriver driver;
+    static WebDriver driver;
 
     @BeforeClass
     public static void startBrowser() {
@@ -27,7 +24,7 @@ public class TestRunner {
 
     @AfterClass
     public static void stop() {
-        //driver.quit();
+        driver.quit();
         driver = null;
     }
 
