@@ -17,10 +17,16 @@ public class ShoppingPage extends BasePage {
             WebElement mensAccessories;
     @FindBy(how = How.XPATH, using = "/html/body/section/section/div/div/div[2]/div[1]/section/div/div/div[1]/div/article/div[2]/span")
             WebElement mensAccessoriesItem;
-    @FindBy(how = How.XPATH, using = ("//*[@id=\"men-s\"]/ul/li[3]/a"))
+    @FindBy(how = How.XPATH, using = "//*[@id=\"men-s\"]/ul/li[3]/a")
             WebElement mensShirts;
-    @FindBy(how = How.XPATH, using = ("//*[@id=\"swap\"]/div/div/div[2]/div/article/div[2]/span"))
+    @FindBy(how = How.XPATH, using = "//*[@id=\"swap\"]/div/div/div[2]/div/article/div[2]/span")
             WebElement mensShirtsItem;
+    @FindBy(how = How.LINK_TEXT, using = "Women's")
+            WebElement womensButton;
+    @FindBy(how = How.LINK_TEXT, using = "Women's Tops")
+            WebElement womensTopsButton;
+    @FindBy(how = How.CSS, using = ".js-input-from")
+            WebElement minPriceValue;
 
     public void clickingPopUp () throws InterruptedException {
         Thread.sleep(4000);
@@ -35,7 +41,23 @@ public class ShoppingPage extends BasePage {
     }
     public void clickingMensShirts(){mensShirts.click();}
     public void findingMensShirtsItem() {
-        String ShirtCheck = mensAccessoriesItem.getText();
-        Assert.assertEquals("MEN'S SHIRT",ShirtCheck);
+        String ShirtCheck = mensShirtsItem.getText();
+        Assert.assertEquals("MEN'S SHIRTS",ShirtCheck);
+    }
+    public void clickingWomensButton() {womensButton.click();}
+    public void findingWomensTopsButton() {
+        String WomensTopsCheck = womensTopsButton.getText();
+        Assert.assertEquals("Women's Tops",WomensTopsCheck.trim());
+    }
+    public void clickingMinimumPriceValue() {
+        minPriceValue.clear();
+    }
+    public void sendingMinimumPriceValue() throws InterruptedException {
+        minPriceValue.sendKeys("25");
+        Thread.sleep(5000);
+    }
+    public void gettingMinimumPriceValue() {
+        String minimumPriceValueCheck = minPriceValue.getAttribute("text");
+        Assert.assertEquals("25", minimumPriceValueCheck);
     }
 }
