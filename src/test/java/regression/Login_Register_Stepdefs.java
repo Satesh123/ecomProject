@@ -112,6 +112,13 @@ public class Login_Register_Stepdefs extends TestRunner {
         Assert.assertTrue(driver.findElement(By.xpath("//div[@class='nav-avatar nav-link']//span[contains(text(),'Welcome ')]")).isDisplayed());
         System.out.println("create account success");
     }
+
+    @Then("^the user account should not be created and error message is shown \"([^\"]*)\"$")
+    public void theUserAccountShouldNotBeCreatedAndErrorMessageIsShown(String msg) throws Throwable {
+
+        //Assert.assertEquals(msg,driver.findElement(By.xpath("//body[contains(@class,'animation-s5')]/section[@class='page-area pro-content']/div[@class='container']/div[@class='row']/div[@class='col-12 col-sm-12 col-md-6']/div[@class='registration-process']/div[1]")).getText());
+        Assert.assertEquals(msg,driver.findElement(By.xpath("//body[contains(@class,'animation-s5')]/section[@class='page-area pro-content']/div[@class='container']/div[@class='row']/div[@class='col-12 col-sm-12 col-md-6']/div[@class='registration-process']/div[1]")).getText().replace("\n","").trim());
+    }
 }
 
 

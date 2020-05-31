@@ -1,6 +1,6 @@
-@successlogin
-Feature: Login and Registration
 
+Feature: Login and Registration
+  @successlogin
   Scenario Outline: Success login
 
     Given user is in login page
@@ -11,7 +11,7 @@ Feature: Login and Registration
 
       |email                         |password|
       |anikethbattalwar02@gmail.com  |abc1234 |
-#      |anikethb02@gmail.com          |test123 |
+      |anikethb02@gmail.com          |test123 |
 
  @failurelogin
   Scenario Outline: Failure login with Invalid email and password
@@ -69,6 +69,33 @@ Feature: Login and Registration
             |fname  |lname  |emailadd        |password  |confirmpassword |gender  |
 #            |Alex   |Jackson|alex@gmail.com  |alex123   |alex123         |Male    |
             |Eric   |Jackson|eric@gmail.com  |eric123   |eric123         |Male    |
+
+          @registrationfail
+            Scenario Outline: User registration failure 1
+
+            Given user is in login page
+            When he enters the "<fname>" "<lname>" "<emailadd>" "<password>" "<confirmpassword>" "<gender>"
+            And accepts the terms and policy
+            Then the user account should not be created and error message is shown "<Errmsg>"
+
+
+            Examples:
+              |fname  |lname  |emailadd        |password  |confirmpassword |gender  |Errmsg                                             |
+              |       |fery   |fery@gmail.com  |fery123   |fery123         | Female |Error:The first name field is required.×           |
+              |Max    |       |fery@gmail.com  |fery123   |fery123         | Female |Error:The last name field is required.×            |
+              |Max    |fery   |                |fery123   |fery123         | Female |Error:The email field is required.×                |
+              |Max    |fery   |maxfery1234     |fery123   |fery123         | Female |Error:The email must be a valid email address.×    |
+              |Max    |fery   |fery@gmail.com  |          |fery123         | Female |Error:The password field is required.×             |
+              |Max    |fery   |fery@gmail.com  |fery123   |                | Female |Error:The re password field is required.×          |
+              |Max    |fery   |fery@gmail.com  |fery123   |tery123         | Female |Error:The re password and password must match.×    |
+              |Max    |fery   |fery@gmail.com  |fery123   |fery123         |        |Error:The customers gender field is required.×     |
+              |       |       |                |          |                |        |Error:The first name field is required.×           |
+              |Alex   |Jackson|alex@gmail.com  |alex123   |alex123         | Male   |Error:Email already exist!×                        |
+
+
+
+
+
 
 
 
