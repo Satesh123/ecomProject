@@ -7,22 +7,18 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import java.net.MalformedURLException;
-
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber-json-report.json"}
-//        ,
-//        tags = {"@03"}
+        //       ,
+        //       tags = {"@Siri"}
 
 )
-
-
 public class TestRunner {
     static WebDriver driver;
 
     @BeforeClass
-    public static void startBrowser() throws MalformedURLException {
+    public static void startBrowser() {
         driver = BrowserFactory.getDriver();
     }
 
