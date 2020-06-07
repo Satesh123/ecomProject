@@ -50,6 +50,7 @@ public class Info_News_ContactUs_StepDef extends TestRunner {
     @And("^select About Us link$")
     public void selectLinkAboutUs() throws InterruptedException {
         infoPage.goToAboutUsPage();
+
     }
 
     @Then("^navigate to the About Us page$")
