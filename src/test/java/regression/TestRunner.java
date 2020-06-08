@@ -10,8 +10,8 @@ import org.openqa.selenium.WebDriver;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-html-report", "json:target/cucumber-json-report.json"}
-        //       ,
-        //       tags = {"@Siri"}
+               ,
+               tags = {"@Siri"}
 
 )
 public class TestRunner {
