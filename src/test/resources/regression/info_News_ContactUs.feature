@@ -15,7 +15,6 @@ Feature: InfoNewsContact
     Then  Navigate to the News Page
 
 
-
   Scenario Outline: Contact Us
     Given User is on Home Page
     When  Click on Contact Us link
