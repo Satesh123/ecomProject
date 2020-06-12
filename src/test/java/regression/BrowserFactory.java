@@ -11,13 +11,13 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import static regression.AutomationConstants.*;
+
 
 public class BrowserFactory {
 
-    private static final int MAX_TIMEOUT = 20;
-    public static final String USERNAME = "satishchaudhari1";
-    public static final String AUTOMATE_KEY = "admtJRmQyeT5QGCJcHzf";
-    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+    private static int MAX_TIMEOUT = TIMEOUT;
+    public static String URL = SAUCE_URL;
 
 
     //single ton
