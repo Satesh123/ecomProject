@@ -1,3 +1,4 @@
+@ignore
 Feature: E-Commerse Shop
   @Siri
   Scenario: Verifying the field of Mens Accessories option
