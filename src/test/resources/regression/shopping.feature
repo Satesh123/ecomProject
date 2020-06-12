@@ -1,3 +1,4 @@
+@ignore
 Feature: E-Commerse Shop
 
   Scenario: Verifying the field of Mens Accessories option

@@ -7,9 +7,6 @@ Feature: Home Page
 #  And click on currency
 #  Then select GBP
 
-
-
-
 @ProductSearch
   Scenario Outline: Search Product
 
@@ -24,7 +21,6 @@ Feature: Home Page
 
 
   @clickshop
-
   Scenario: Customer navigating to shop
 
     Given click to shop link
