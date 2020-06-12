@@ -1,8 +1,11 @@
 package regression.customerPortalPOM;
 
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class ContactUsPage extends BasePage {
@@ -21,25 +24,22 @@ public class ContactUsPage extends BasePage {
     WebElement submitButton;
 
 
-
-    public boolean isContactUsTabDisplay() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[@class='modal-body']//div[@class='container']//" +
-                "span[contains(text(),'×')]")).click();
-        return contactUs.isDisplayed();
-    }
-    public void clickOnContactUs(){
+    public void clickOnContactUs() {
         contactUs.click();
     }
-    public void isContactPageDisplay(){
-        contactUsPage.isDisplayed();
-    }
-    public void fillRequiredField(String name, String email, String message){
+
+    public void fillRequiredField(String name, String email, String message) {
         fullName.sendKeys(name);
         CustomerUsername.sendKeys(email);
         writeMessage.sendKeys(message);
         submitButton.click();
 
+    }
+
+    public void isMessageSent() {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        String pageTitle = contactUsPage.getText().trim();
+        Assert.assertEquals("CONTACT US", pageTitle);
     }
 
 }

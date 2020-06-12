@@ -91,7 +91,7 @@ public class ShoppingPage extends BasePage {
     WebElement addToCart;
     @FindBy(how = How.CSS, using = ".product-hover > .active.product-hover > .active")
     WebElement cartButton;
-    @FindBy(how = How.XPATH, using = "//section[@class=' cart-content']//h4")
+    @FindBy(how = How.CLASS_NAME, using = "item-detail")
     WebElement cartItem;
 
     @FindBy(how = How.XPATH, using = "//button[text()='Add to Cart']")

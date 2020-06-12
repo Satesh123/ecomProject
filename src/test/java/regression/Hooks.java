@@ -6,7 +6,7 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import regression.customerPortalPOM.ShoppingPage;
+
 
 public class Hooks {
 
@@ -21,7 +21,7 @@ public class Hooks {
     @After
     public void stop(Scenario scenario) {
 
-        if (!scenario.isFailed()) {
+        if (scenario.isFailed()) {
             byte[] screenshotBytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshotBytes, "image/png");
         }
