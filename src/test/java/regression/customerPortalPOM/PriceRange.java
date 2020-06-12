@@ -1,13 +1,11 @@
 package regression.customerPortalPOM;
 
-import com.devskiller.jfairy.Fairy;
-import com.devskiller.jfairy.producer.BaseProducer;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.*;
-
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import java.util.List;
 
@@ -63,28 +61,5 @@ public class PriceRange extends BasePage {
         Assert.assertEquals(showing_record.getText(), showing_total_record.getText());
     }
 
-    public void putRandomPrice() {
-        Fairy fairy = Fairy.create();
-        BaseProducer baseProducer = fairy.baseProducer();
-        minPriceBox.clear();
-        maxPriceBox.clear();
-        minPriceBox.sendKeys(String.valueOf(baseProducer.randomBetween(10, 50)));
-        maxPriceBox.sendKeys(String.valueOf(baseProducer.randomBetween(51, 130)));
 
-        Actions actions = new Actions(driver);
-        actions.moveToElement(apply_btn).click().build().perform();
-
-        List<WebElement> search = driver.findElements(By.className("price"));
-
-        System.out.println(search.size());
-        System.out.println(showing_record.getText());
-        int i = Integer.parseInt(showing_record.getText());
-        Assert.assertEquals(search.size(), i);
-
-        for (WebElement webElement : search) {
-            String priceList = webElement.getText();
-            System.out.println(priceList);
-        }
-
-    }
 }
