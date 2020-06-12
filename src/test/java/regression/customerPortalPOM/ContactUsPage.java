@@ -1,9 +1,11 @@
 package regression.customerPortalPOM;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class ContactUsPage extends BasePage {
@@ -33,11 +35,11 @@ public class ContactUsPage extends BasePage {
         submitButton.click();
 
     }
-    public void isMessageSent()
-    {
-        String pageTitle = contactUsPage.getText().trim();
-                Assert.assertEquals("CONTACT US", pageTitle);
 
+    public void isMessageSent() {
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        String pageTitle = contactUsPage.getText().trim();
+        Assert.assertEquals("CONTACT US", pageTitle);
     }
 
 }

@@ -72,6 +72,9 @@
       <artifactId>jfairy</artifactId>
       <version>0.6.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot -->
+
+
 
 
   </dependencies>
